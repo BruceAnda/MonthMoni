@@ -41,7 +41,11 @@ public class MainRightShopInfoAdapter extends RecyclerView.Adapter<MainRightShop
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         ShopBean shopBean = shopBeanList.get(position);
         holder.tvShopInfo.setText(shopBean.commodityName);
-        Glide.with(context).load(shopBean.masterPic).into(holder.ivShopImage);
+        Glide.with(context)
+                .load(shopBean.masterPic)
+                .placeholder(R.drawable.timg)
+                .error(R.drawable.timg)
+                .into(holder.ivShopImage);
     }
 
     @Override

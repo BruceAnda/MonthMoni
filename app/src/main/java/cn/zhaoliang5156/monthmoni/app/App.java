@@ -2,6 +2,8 @@ package cn.zhaoliang5156.monthmoni.app;
 
 import android.app.Application;
 
+import com.umeng.commonsdk.UMConfigure;
+
 import cn.zhaoliang5156.monthmoni.net.VolleyHttpImpl;
 
 /**
@@ -17,5 +19,7 @@ public class App extends Application {
         super.onCreate();
 
         VolleyHttpImpl.create(this);
+
+        UMConfigure.init(this, "5cc7fc670cafb2065a000537", "360", UMConfigure.DEVICE_TYPE_PHONE, "");
     }
 }

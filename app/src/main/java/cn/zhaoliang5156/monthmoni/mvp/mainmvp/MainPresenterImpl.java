@@ -81,6 +81,7 @@ public class MainPresenterImpl implements MainContract.IMainPresetner {
                 // 根据二级分类请求 商品信息
                 final List<Category> result1 = categoryResponse.result;
 
+
                 final List<RightResponse> rightResponses = new ArrayList<>();
 
                 mainModel.loadData(Api.SHOP_INFO + Api.SHOP_INFO_PARAM_KEYWORD + URLEncoder.encode(result1.get(0).name) + Api.SHOP_INFO_PARAM_PAGE + Api.SHOP_INFO_PARAM_COUNT, new HttpCallback() {
@@ -88,7 +89,7 @@ public class MainPresenterImpl implements MainContract.IMainPresetner {
                     public void onSuccess(String result) {
                         // 解析商品信息
                         Gson gson1 = new Gson();
-                        RightResponse rightResponse = gson.fromJson(result, RightResponse.class);
+                        RightResponse rightResponse = gson1.fromJson(result, RightResponse.class);
                         rightResponse.category = result1.get(0).name;
 
                         rightResponses.add(rightResponse);
@@ -105,9 +106,6 @@ public class MainPresenterImpl implements MainContract.IMainPresetner {
 
                     }
                 });
-                /*for (Category category : result1) {
-
-                }*/
 
             }
 
